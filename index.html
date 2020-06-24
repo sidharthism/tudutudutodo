@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./src/styles.css">
+  <title>Tu du TO-DO</title>
+</head>
+
+<body>
+  <div id="app">
+  <img src="./src/assets/logo.png">
+  <br>
+  <div class="todos" >
+    <div class="container-fluid ">
+      <form v-on:submit="submitForm">
+        <input type="text" v-model="text" class="form-control" />
+        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"
+            aria-hidden="true"></span></button>
+      </form>
+      <br>
+      <!-- <ul>
+       <li v-for="todo in todos">
+         <input type="checkbox" class="toggle" v-model="todo.completed" >
+         <span :class = "{completed: todo.completed}" style="padding-left: 10px">
+           {{ todo.text}}
+           <label @dblclick="deleteTodo(todo)" class="todo-text">
+             Delete
+       </label>
+       </span>
+     </li>
+     </ul> -->
+      <div class="container todos-container">
+        <h4>My To - Do List</h4>
+        <table>
+          <tr v-for="todo in todos">
+            <td><input type="checkbox" class="toggle" v-model="todo.completed"></td>
+            <td class="todo-list">
+              <h4 class="todo-text"><span :class="{completed: todo.completed}">
+                  {{ todo.text}}
+                </span></h4>
+            </td>
+            <td><label @dblclick="deleteTodo(todo)" class="todo-remove">
+                Delete
+              </label></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <section id="footer">
+    <p>Created by <a href="https://github.com/sidharthism" target="_blank">@sidharthism</a></p>
+  </section>
+  <script src="./src/main.js"></script>
+</body>
+</html>
